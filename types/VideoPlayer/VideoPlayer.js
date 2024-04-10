@@ -154,7 +154,6 @@ export class VideoPlayer {
             '; cursor: default;');
     }
     updateVideoStreamSize() {
-        var _a;
         if (!this.config.isFlagEnabled(Flags.MatchViewportResolution)) {
             return;
         }
@@ -164,8 +163,8 @@ export class VideoPlayer {
             if (!videoElementParent) {
                 return;
             }
-            const devicePixelRatio = (_a = window.devicePixelRatio) !== null && _a !== void 0 ? _a : 1;
-            this.onMatchViewportResolutionCallback(videoElementParent.clientWidth * devicePixelRatio, videoElementParent.clientHeight * devicePixelRatio);
+            //const devicePixelRatio = window.devicePixelRatio ?? 1;
+            this.onMatchViewportResolutionCallback(videoElementParent.clientWidth /* * devicePixelRatio*/, videoElementParent.clientHeight /* * devicePixelRatio*/);
             this.lastTimeResized = new Date().getTime();
         }
         else {
