@@ -38,7 +38,6 @@ export class VideoPlayer {
         };
         this.videoElement.onloadedmetadata = () => {
             this.onVideoInitialized();
-            this.resizePlayerStyle();
         };
         // set resize events to the windows if it is resized or its orientation is changed
         window.addEventListener('resize', () => this.resizePlayerStyle(), true);
