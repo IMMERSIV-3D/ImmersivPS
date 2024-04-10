@@ -65,6 +65,7 @@ export class VideoPlayer {
 
         this.videoElement.onloadedmetadata = () => {
             this.onVideoInitialized();
+            this.resizePlayerStyle();
         };
 
         // set resize events to the windows if it is resized or its orientation is changed
@@ -224,9 +225,11 @@ export class VideoPlayer {
                 return;
             }
 
+            const devicePixelRatio = window.devicePixelRatio ?? 1;
+
             this.onMatchViewportResolutionCallback(
-                videoElementParent.clientWidth,
-                videoElementParent.clientHeight
+                videoElementParent.clientWidth * devicePixelRatio,
+                videoElementParent.clientHeight * devicePixelRatio
             );
 
             this.lastTimeResized = new Date().getTime();
